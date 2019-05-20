@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        {% include "./head.html" %}
+        <!-- local -->
+        <title>ニュース - {{ site_detail.site_name }}</title>
+
+        <!-- パンくずリスト -->
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+                "@id": "/blog",
+                "name": "ニュース"
+            }
+            }
+        ]
+        }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            {% include "./header.html" %}
+        </header>
+
+        <section class="news_block news_list top_section" id="news_list">
+            <h1>ニュース</h1>
+            <div class="main">
+            <ul id="news">
+                {% for blog in blog_list %}
+                <li><a href="/blog/{{ blog.custom_url }}">
+                    <span class="date">{{ blog.date }}</span>{{ blog.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+            </section>
+
+        <footer>
+            <p class="copyright">&copy; {{ site_detail.display_name }} All Right Reserved.</p>
+        </footer>
+    </body>
+</html>

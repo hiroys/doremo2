@@ -1,0 +1,10 @@
+<p class="shop_logo"><a href="/"><img src="/images/shop_logo.png" height="36" width="36" alt="ショップロゴ"></a></p> 
+<p class="shopname"><a href="/">{{ site_detail.site_name }}</a></p>
+<p class="ruby"><a href="/">ナナオミサン ドット ショップ</a></p>
+<nav>
+<ul id="gnav">
+{% for navi in navigation %}
+<li><a href="{{ navi.url }}">{{ navi.name }}</a></li>
+{% endfor %}
+</ul>
+</nav>

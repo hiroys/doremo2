@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        {% include "./head.html" %}
+
+        <!-- local -->
+        <title>{{ product_detail.product_name }} - {{ site_detail.site_name }}</title>
+        <meta name="keyword" content="{{ product_detail.keyword }}">
+
+        <!-- 商品情報 -->
+        <script type="application/ld+json">
+        {
+        "@context" : "http://schema.org",
+        "@type" : "Product",
+        "name" : "{{ product_detail.product_name }}",
+        "url" : "https://{{ site_detail.domain_name }}/products/{{ product_detail.product_code }}",
+        "image" : [
+            {% for photo in product_detail.photos %}
+            "https://{{ site_detail.domain_name }}/images/{{ photo }}"{% if not loop.last %},{% endif %}
+            {% endfor %}],
+        "description" : "{{ product_detail.sammary }}",
+        "brand" : {
+            "@type" : "Brand",
+            "name" : "{{ site_detail.domain_name }}",
+            "logo" : "https://{{ site_detail.domain_name }}/images/shop_logo.png"
+        },
+        "offers" : {
+            "@type" : "Offer",
+            "price" : "{{ product_detail.price }}",
+            "priceCurrency": "JPY"
+        }
+        }
+        </script>
+
+        <!-- パンくずリスト -->
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+                "@id": "/products",
+                "name": "商品一覧"
+            }
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "item":
+            {
+                "@id": "/products/{{ product_detail.product_code }}",
+                "name": "{{ product_detail.product_name }}"
+            }
+            }
+        ]
+        }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            {% include "./header.html" %}
+        </header>
+
+        <section class="product_top top_section">
+            <h1>{{ product_detail.product_name }}</h1>
+            <ul class="product_photo carousel">
+                {% for photo in product_detail.photos %}
+                <li><img src="/images/{{ photo }}"></li>
+                {% endfor %}
+            </ul>
+            <p class="product_code">商品番号: {{ product_detail.product_code }}</p>
+            <p class="release_date">発売日: {{ product_detail.release_date }}</p>
+            <p class="price">価格: {{ product_detail.price }}円（税込）</p>
+            {% if product_detail.sold_out == "True" %}
+            <p class="sold_out"><img src="/images/icon_soldout.png" alt="sold out"></p>
+            {% endif %}
+        </section>
+
+        <div class="main">
+            <section class="sammary">
+                <p class="product_sammary">{{ product_detail.sammary }}</p>
+            </section>
+
+        {% if product_detail.description == "" %}
+        <!-- content_body is empty -->
+        {% else %}
+            <section class="description">
+                {{ product_detail.description }}
+            </section>
+        {% endif %}
+
+        {% if product_detail.order_url == "" %}
+        <!-- order_url is empty -->
+        {% else %}
+            <section class="order_url">
+                <button class="order_button" onclick="javascript:window.href='{{ product_detail.order_url }}';">通販サイトへ移動</button>
+            </section>
+        {% endif %}
+
+        </div>
+
+        <footer>
+            <p class="copyright">&copy; {{ site_detail.display_name }} All Right Reserved.</p>
+        </footer>
+    </body>
+</html>

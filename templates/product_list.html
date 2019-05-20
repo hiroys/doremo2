@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        {% include "./head.html" %}
+
+        <!-- local -->
+        <title>商品一覧 - {{ site_detail.site_name }}</title>
+
+        <!-- パンくずリスト -->
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+                "@id": "/products",
+                "name": "商品一覧"
+            }
+            }
+        ]
+        }
+        </script>
+
+    </head>
+    <body>
+        <header>
+            {% include "./header.html" %}
+        </header>
+        <div class="long_mini product_root top_section">
+            <div class="layerTransparent">
+                <h1>商品一覧</h1>
+            </div>
+        </div>
+
+        <div class="main">
+        <section class="product">
+        <h2>新商品</h2>
+        <ul class="product_grid">
+            {% for product in product_list %}
+            <li><a href="/products/{{ product.product_code }}">
+                {% for photo in product.photos %}
+                    {% if loop.first %}
+                    <span class="prod_photo"><img src="/images/{{ photo }}"></span>
+                    {% endif %}
+                {% endfor %}
+                <br>
+                <span class="prod_name">{{ product.product_name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        </section>
+        </div>
+
+        <footer>
+            <p class="copyright">&copy; {{ site_detail.display_name }} All Right Reserved.</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        {% include "./head.html" %}
+        <title>{{ site_detail.site_name }}</title>
+
+        <!-- local -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="{{ twitter_id }}">
+        <meta name="twitter:url" property="og:url" content="https://{{ site_detail.domain_name }}">
+        <meta name="twitter:title" property="og:title" content="{{ twitter_title }}"> 
+        <meta name="twitter:description" property="og:description" content="{{ twitter_description }}"> 
+        <meta name="twitter:image" property="og:image" content="https://{{ site_detail.domain_name }}/images/twitter_card.jpg">
+
+    </head>
+
+    <body>
+        <header>
+            {% include "./header.html" %}
+        </header>
+
+        <div class="long catch top_section">
+            <div class="layerTransparent">
+                <h1>{{ twitter_title }}</h1>
+                <p>{{ twitter_description }}</p>
+            </div>
+        </div>
+
+        <div class="sns">
+            <ul>
+                <li><a href="https://twitter.com/intent/tweet?text={{ site_detail.domain_name }}&url=https://{{ site_detail.domain_name }}&hashtags={{ site_detail.twitter_hashtag }}" 
+                    onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" 
+                    rel="nofollow" class="twitter-link"><img src="https://{{ site_detail.domain_name }}/images/share_button_twitter.png" height="20" width="60" alt="share twitter"></a></li>
+                <li><a href="http://line.me/R/msg/text/?https://{{ site_detail.domain_name }}%20{{ site_detail.twitter_hashtag }}" target="_blank">
+                    <img src="https://{{ site_detail.domain_name }}/images/share_button_line.png" height="20" width="80" alt="share LINE"></a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            {% if product_list|length == 0 %}
+            <!-- 商品はなし -->
+            {% else %}
+            
+            <section class="product">
+                <h2>新商品</h2>
+                <ul class="product_grid">
+                    {% for product in product_list %}
+                    <li><a href="/products/{{ product.product_code }}">
+                        {% for photo in product.photos %}
+                            {% if loop.first %}
+                            <span class="prod_photo"><img src="/images/{{ photo }}" alt="{{ product.product_name }}"></span>
+                            {% endif %}
+                        {% endfor %}
+                        <br>
+                        <span class="prod_name">{{ product.product_name }}</span></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button name="to_product_root" id="to_product_root" onclick="javascript:window.location.href='https://{{ site_detail.domain_name }}/products';">すべての商品をみる</button>
+            </section>
+            {% endif %}
+
+
+            {% if blog_list|length == 0 %}
+            <!-- newsはなし -->
+            {% else %}
+            <section class="news_block" id="news_list">
+            <h2>最新ニュース</h2>
+            <ul id="news">
+                {% for blog in blog_list %}
+                <li><a href="/blog/{{ blog.custom_url }}">
+                    <span class="date">{{ blog.date }}</span>{{ blog.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            </section>
+            {% endif %}
+
+        <!--
+            <section class="ask">
+                <h2>オーダーメイドも行なっています</h2>
+                <p>アクセサリーは、お客様のご要望に合わせたオーダーメイドもお受けしております（原則費用先払い）。オーダーメイドの内容はご相談で決めさせていただきますので、まずはフォームよりお問い合わせください。</p>
+                <button name="to_ask_form" id="to_ask_form" onclick="javascript:window.location.href='https://{{ site_detail.domain_name }}/ask';">問い合わせする</button>
+            </section>
+        -->
+
+        <!--
+            <section class="shop" id="space">
+                <h2>展示スペースのご案内</h2>
+                <p>ショップ「APHRODITE」様の店内で、実物を見ながらの購入が可能です。</p>
+                <div id="shop_info">
+                    <p class="photo"><img src="/images/photo_aphrodite.jpg" alt="「APHRODITE」様店頭写真"></p>
+                    <dl class="display_space">
+                        <dt>展示スペース</dt>
+                        <dd>千葉県習志野市東習志野3-1-22 ショップ「APHRODITE」内</dd>
+                        <dd>営業時間:10:00〜17:00（日曜祭日定休、その他不定休あり）</dd>
+                        <dd>最寄駅：京成線 実籾駅</dd>
+                    </dl>
+                </div>
+                <div class="iframe_wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.4476302360217!2d140.06864391514853!3d35.69060073706567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022811b25e9a645%3A0x92851e260e925458!2z44CSMjc1LTAwMDEg5Y2D6JGJ55yM57-S5b-X6YeO5biC5p2x57-S5b-X6YeO77yT5LiB55uu77yR4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1519697440761" class="google_map" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </section>
+        -->
+
+            <section class="shop" id="space">
+                <h2>展示スペースのご案内</h2>
+                <p>展示スペースで利用していた店舗の休業のため、しばらく展示をお休みいたします。</p>
+                <p>BOOTHでの通信販売は引き続き、行います。</p>
+            </section>
+
+        </div> <!-- end of main -->
+
+        <footer>
+            <p class="copyright">&copy; {{ site_detail.display_name }} All right reserved.</p>
+        </footer>
+
+    </body>
+</html>

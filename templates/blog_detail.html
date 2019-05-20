@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+    <head>
+        {% include "./head.html" %}
+        <!-- local -->
+        <title>{{ blog_detail.title }} - {{ site_detail.site_name }}</title>
+
+        <!-- 記事についてのデータ -->
+        <script type="application/ld+json">
+        {
+        "@context" : "http://schema.org",
+        "@type" : "Article",
+        "name" : "{{ contents.title }}",
+        "mainEntityOfPage": "https://{{ site_detail.domain_name }}/blog/{{ blog_detail.custom_url }}",
+        "author" : {
+            "@type" : "Person",
+            "name" : "{{ site_detail.display_name }}"
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://{{ site_detail.domain_name }}/images/photo_booth_space.jpg",
+            "height": 2448,
+            "width": 3264
+        },
+        "headline" : "{{ blog_detail.title }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ site_detail.display_name }}",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://{{ site_detail.domain_name }}/images/shop_logo.png",
+            "width": 60,
+            "height": 60
+            }
+        },
+        "datePublished" : "{{ blog_detail.date }}",
+        "dateModified" : "{{ blog_detail.date }}",
+        "articleBody" : "{{ blog_detail.summary }}"
+        }
+        </script>
+
+        <!-- パンくずリスト -->
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+                "@id": "/blog",
+                "name": "ニュース"
+            }
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "item":
+            {
+                "@id": "/blog/{{ blog_detail.custom_url }}",
+                "name": "{{ blog_detail.title }}"
+            }
+            }
+        ]
+        }
+        </script>
+    </head>
+
+    <body>
+        <header>
+        {% include "./header.html" %}
+        </header>
+        <div class="long_mini blog top_section">
+            <div class="layerTransparent">
+            <h1 class="blog_title">{{ blog_detail.title }}</h1>
+            <p class="date">{{ blog_detail.date }}</p>
+            <p class="tags">
+                {% for tag in blog_detail.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </p>
+            </div>
+        </div>
+
+        <div class="main">
+            <section class="sammary">
+                <p>{{ blog_detail.sammary }}</p>
+            </section>
+
+        {% if blog_detail.content_body == "" %}
+        <!-- content_body is empty -->
+        {% else %}
+            <section class="content_body">
+                {{ blog_detail.content_body }}
+            </section>
+        {% endif %}
+        </div>
+
+        <footer>
+            <p class="copyright">&copy; {{ site_detail.display_name }} All Right Reserved.</p>
+        </footer>
+    </body>
+</html>
