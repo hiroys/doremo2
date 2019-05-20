@@ -1,0 +1,769 @@
+/* Initialize */
+html {
+    font-size: calc(112.5% + 1.5vw);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+                   (min-resolution: 2dppx),
+                   (min--moz-device-pixel-ratio: 2),
+                   (-o-min-device-pixel-ratio: 2/1) {
+    html {
+         font-size: calc(112.5% + 0.5vw);
+    }
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0,256,0,0.6);
+    z-index: 9998;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    padding: 0;
+    margin: 0;
+}
+@media screen and (min-width: 501px) {
+    div.main {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 500px) {
+    div.main {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+section {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3em;
+    text-align: center;
+    width: 100%;
+}
+.top_section {
+    margin-top: 70px !important;
+}
+button {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    margin-top: 20px;
+    appearance: none;
+    font-size: 100%;
+}
+button:hover {
+    background-color: darkgreen;
+}
+button:active {
+    background-color: forestgreen;
+}
+
+/* common */
+h1 {
+    font-family: 'Nico Moji', 'Yu Gothic', sans-serif;
+    font-weight: 700;
+    color: #004200;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    h1 {
+    }
+}
+@media screen and (max-width: 500px) {
+    h1 {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+h2 {
+    font-family: 'Yu Gothic', sans-serif;
+    font-weight: 700;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    h2 {
+    }
+}
+@media screen and (max-width: 500px) {
+    h2 {
+    }
+}
+
+h3 {
+    font-family: 'Yu Gothic', sans-serif;
+    font-weight: 700;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    h3 {
+    }
+}
+@media screen and (max-width: 500px) {
+    h3 {
+    }
+}
+
+p, li, dt, dd, input[type="text"], input[type="email"], textarea {
+    font-family: 'Yu Gothic', sans-serif;
+    font-size: 100%;
+    font-weight: 500;
+}
+@media screen and (min-device-width: 1921px) {
+    p, li, dt, dd, input[type="text"], input[type="email"], textarea {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    p, li, dt, dd, input[type="text"], input[type="email"], textarea {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 500px) and (max-device-width: 1920px) {
+    p, li, dt, dd, input[type="text"], input[type="email"], textarea {
+        font-size: calc((100% + 0.25vw) *1.0);
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+dl {
+    margin: 0;
+    padding: 0;
+}
+dt {
+    font-weight: 700;
+}
+dd {
+    margin: 0 auto;
+    padding 0;
+    width: 80%;
+}
+button {
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    button {
+    }
+}
+@media screen and (max-width: 500px) {
+    button {
+    }
+}
+
+p.photo {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+@supports (-ms-ime-align: auto) {
+    p.photo {
+    }
+}
+
+@media screen and (min-device-width: 1921px) {
+    p.photo img {
+       width: 100%;
+       max-width: 1920px;
+       margin: 0;
+       padding: 0;
+    }
+}
+@media screen and (max-device-width: 1920px) {
+    p.photo img {
+       width: 100%;
+    }
+}
+@supports (-ms-ime-align: auto) {
+    p.photo img {
+    }
+}
+
+figcaption {
+    font-size: 90%;
+    font-family: 'Yu Gothic', sans-serif;
+}
+
+/* navi */
+.shop_logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.shopname {
+    position: relative;
+    top: 0px;
+    left: 50px;
+    margin: 0;
+    padding; 0;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-family: 'San Francisco', sans-serif;
+    font-weight: bold;
+    color: #004200;
+}
+.shopname rt {
+    visibility: hidden;
+}
+.shopname a:link, .shopname a:visited {
+    text-decoration: none;
+    color: #004200;
+}
+.shopname a:hover {
+    color: blue;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    .shopname {
+    }
+}
+@media screen and (max-width: 500px) {
+    .shopname {
+    }
+}
+
+.ruby {
+    position: relative;
+    top: 0px;
+    left: 50px;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    font-family: 'San Francisco', sans-serif;
+    font-size: 60%;
+}
+.ruby a:link, .ruby a:visited {
+    text-decoration: none;
+    color: #004200;
+}
+.ruby a:hover {
+    color: blue;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    .ruby {
+        margin-top: -5px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .ruby {
+    }
+}
+
+.slicknav_menu {
+     width: 120px;
+     position: fixed;
+     top: 5px;
+     right: 10px;
+     background-color: transparent !important;
+     z-index: 9999;
+}
+@media screen and (max-width: 500px) {
+    #gnav {
+        display: none;
+    }
+    .slicknav_menu {
+        display: block;
+    }
+    .slicknav_nav {
+        background-color: green;
+        width: 9em;
+        padding: 0;
+    }
+    .slicknav_nav li {
+        padding: 0;
+        width: 100%;
+    }
+}
+@media screen and (min-width: 501px) {
+    .slicknav_menu {
+        display: none;
+    }
+    #gnav {
+        position: fixed;
+        top: 0;
+        right: 20px;
+        text-align: right;
+        font-size: 80%;
+        font-weight: bold;
+    }
+    #gnav li{
+        display: inline;
+    }
+    #gnav li a:link, #gnav li a:visited {
+        text-decoration: none;
+        color: #004200;
+    }
+    #gnav li a:hover {
+        color: blue;
+    }
+    #gnav li a:before {
+        content: '|';
+    }
+}
+
+/* footer */
+footer {
+    margin-top: 3em;
+    text-align: center;
+}
+
+
+
+/* top page */
+.long {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+.long h1 {
+    position: relative;
+    top: 45%;
+    text-align: center;
+    font-family: 'Nico Moji', 'Yu Gothic', sans-serif;
+    font-size: 250%;
+} 
+@supports (-ms-ime-align: auto) {
+    .long h1 {
+        font-size: 400%;
+    }
+    .long p {
+        font-size: 180%;
+    }
+}
+.long p {
+    text-align: center;
+    position: relative;
+    top: 45%;
+    font-weight: bold;
+}
+@media screen and (min-width: 501px) {
+    .long p {
+        top: 40%;
+    }
+}
+
+.catch {
+    border: 1px #bbb solid;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #fff;
+    background-image: url('https://nanaomi3.shop/images/bkimg_top.jpg');
+    background-size: cover;
+    font-family: 'San Francisco', sans-serif;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    .catch {
+        background-attachment: fixed;
+    }
+}
+@media screen and (max-width: 500px) {
+    .catch {
+        height: 70%;
+    }
+}
+
+.layerTransparent {
+    border 1px #fff solid;
+    padding: 0;
+    margin: -5px;
+    height: 103%;
+    background-color: rgba(255,255,255,0.6);
+    background-size: cover;
+}
+@media screen and (min-width: 501px) {
+    .layerTransparent {
+        position: relative;
+        top: -30px;
+    }
+}
+
+div.sns {
+    margin: 10px auto;
+    padding: 0;
+    text-align: right;
+    width: 80%;
+}
+div.sns ul li {
+    display: inline;
+    margin-left: 10px;
+}
+.product, .news, .shop_info {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.product, .shop {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+@media screen and (min-width: 501px) {
+    .product_grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px 20px;
+        margin: 0; 
+        padding: 0;
+    }
+    .product_grid li {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        font-size: 80%;
+        text-align: left;
+    }
+    .product_grid li span.prod_photo {
+        display: inline;
+    }
+    .product_grid li span.prod_name {
+        display: inline;
+    }
+}
+@media screen and (max-width: 500px) {
+    .product_grid {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .product_grid li {
+        display: block;
+        margin: 5px 0 0 0;
+        padding: 10px 0 5px 0;
+        font-size: 100%;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+    .product_grid li a {
+        display: grid;
+        grid-template-columns: 30% 65%;
+    }
+    .product_grid li a img {
+        width: 100%;
+        height: 100%;
+    }
+    .product_grid li br {
+        display: none;
+    }
+    .product_grid li span.prod_photo {
+        display: flex;
+    }
+    .product_grid li span.prod_name {
+        display: flex;
+        text-align: left;
+        padding-left: 10px;
+    }
+}
+.product_grid li a:link, .product_grid li a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+.product_grid li a:hover {
+    color: blue;
+}
+.product_grid li img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+section.shop {
+    position: static;
+}
+div#shop_info {
+    width: 100%;
+    position: static;
+}
+dl.display_space {
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+.iframe_wrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0px;
+    position: relative;
+}
+iframe.google_map {
+    width: 100%;
+    height: 100%;
+    margin-botton: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+ul#news {
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+ul#news li {
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+    margin: auto 0;
+    paddong: auto 0;
+}
+ul#news li a:link, ul#news li a:visited, ul#news li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+span.date {
+    width: 300px;
+    margin-right: 20px;
+}
+button#to_product_root {
+    width: 11em;
+    margin-bottom: 1em;
+}
+button#to_ask_form {
+    width: 10em;
+}
+
+/* ask_form */
+.ask_top {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-image: url('https://nanaomi3.shop/images/bkimg_ask.jpg');
+    background-size: cover;
+    font-family: 'San Francisco', sans-serif;
+}
+.ask_form {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+@media screen and (max-width: 500px) {
+    .ask_form {
+        width: 90%;
+    }
+}
+.category, .title, .ask_body, .budget, .user_name {
+    border: 1px #aaa solid;
+    padding: 10px;
+    margin-bottom: -1px;
+}
+.category h3, .title h3, .ask_body h3, .budget h3, .user_name h3 {
+    margin: 0;
+    margin-bottom: 16px;
+    padding: 0;
+}
+.category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.category ul li {
+    margin: 0;
+    padding: 0;
+}
+.title input, .budget input .user_name input {
+    width: 100%;
+}
+@media screen and (max-width: 500px) {
+    .title input, .budget input, .user_name input{
+        width: 90%;
+    }
+}
+
+.ask_body textarea {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+button#submit {
+    width: 4em;
+}
+
+
+/* blog page */
+.long_mini {
+    padding: 0;
+    margin: 0;
+    height: 50%;
+}
+.long_mini h1 {
+    position: relative;
+    top: 25%;
+    text-align: center;
+}
+.long_mini p {
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+@media screen and (min-width: 501px) {
+    .long_mini p {
+        top: 30%;
+    }
+}
+/* blog page */
+h1.blog_title {
+    font-family: 'Yu Gothic', sans-serif;
+    font-size: 140%;
+    line-height: 120%;
+    positopn: relative;
+    top: 35%;
+}
+.blog {
+    border: 1px #bbb solid;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3em;
+    height: 50%;
+    background-color: #fff;
+    background-image: url('https://nanaomi3.shop/images/bkimg_top.jpg');
+    background-size: cover;
+    font-family: 'San Francisco', sans-serif;
+}
+@media screen and (min-width: 501px) and (max-device-width: 1920px) {
+    .blog {
+        background-attachment: fixed;
+    }
+}
+@media screen and (max-width: 500px) {
+    .blog {
+        height: 50%;
+    }
+}
+.blog p.date {
+    margin-top: 20px;
+}
+section.sammary {
+    text-align: left;
+    margin: 20px auto;
+}
+section.sammary p {
+    text-align: left;
+}
+section.description {
+    margin: 20px auto;
+}
+section.description p {
+    margin-bottom: 1em;
+    text-align: left;
+}
+section.content_body {
+    text-align: left;
+}
+section.content_body p {
+    margin-bottom: 1em;
+}
+@media screen and (min-width: 501px) {
+    div.inpage_column {
+        column-count: 3;
+        width: 80%;
+        margin: 20px auto;
+        padding-left: 0;
+        display: flexbox;
+    }
+    figure {
+        width: 100%; 
+        break-inside: avoid;
+        vertical-align: top;
+        display: inline-block;
+    }
+    figcaption {
+        break-before: avoid;
+        -webkit-break-before: avoid;
+    }
+}
+@media screen and (max-width: 500px) {
+    div.inpage_column {
+        padding-left: 0;
+        width: 100%;
+    }
+}
+
+/* product page */
+.product_root {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -30px;
+    background-image: url('https://nanaomi3.shop/images/photo_booth_space.jpg');
+    background-size: cover;
+    background-position: left bottom;
+}
+.product_root h1 {
+     position: relative;
+     top: 50%;
+}
+.product_top {
+    position: relative;
+    top: 80px;
+    margin: 0;
+    margin-bottom: 120px;
+}
+.product_top h1 {
+    font-family: 'Yu Gothic', serif;
+    font-weight: bold;
+}
+.product_top p {
+    font-size: 80%;
+}
+.product_top p.sold_out {
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    width: 128px;
+    margin: 0;
+    padding: 0;
+}
+.product_top p.sold_out img {
+    height: 128px;
+    width: 128px;
+}
+
+.carousel {
+width:90vw;
+padding: 0;
+margin: 0;
+margin-left: 8%;
+overflow-x:scroll;
+-webkit-overflow-scrolling:touch;
+overflow-scrolling:touch;
+white-space:nowrap;
+}
+.carousel li {
+background: #fff;
+text-align: center;
+display: inline-block;
+margin: 0 20px;
+padding: 0;
+width: initial;
+}
+.product_photo li img {
+    height: 50vw;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+.product_sammary {
+    text-align: center;
+}
+.order_button {
+    width: 10em;
+}
