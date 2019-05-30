@@ -205,7 +205,7 @@ def get_navigation(site_id):
     sql = 'SELECT url, name FROM cms2_navi WHERE site_id=%s ORDER BY priority ASC;'
 
     conn = db_conn()
-    with conn.cursor as cur:
+    with conn.cursor() as cur:
         cur.execute(sql, (site_id,))
         results = cur.fetchall()
 
