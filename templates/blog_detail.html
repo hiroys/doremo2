@@ -94,7 +94,7 @@
         <!-- content_body is empty -->
         {% else %}
             <section class="content_body">
-                {{ blog_detail.content_body }}
+                {{ blog_detail.content_body|safe }}
             </section>
         {% endif %}
         </div>
