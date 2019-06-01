@@ -37,7 +37,7 @@ def blog_list():
     html = render_template('blog_list.html', site_detail=site_detail, blog_list=blog_list, navigation=navigation)
     return html
 
-@app.route('/news/<custom_url>', methods=['GET'])
+@app.route('/blog/<custom_url>', methods=['GET'])
 def blog_detail(custom_url):
     # 環境変数からサイトIDを取得
     site_id = os.environ['site_id']
@@ -153,7 +153,7 @@ def get_blog_detail(site_id, custom_url):
     sql = 'SELECT title, summary, content_body, tags, date FROM cms2_blog WHERE site_id=%s AND custom_url=%s AND visible=True;'
 
     conn = db_conn()
-    with conn.cursor as cur:
+    with conn.cursor() as cur:
         cur.execute(sql, (site_id, custom_url,))
         result = cur.fetchone()
 
@@ -170,7 +170,7 @@ def get_product_detail(site_id, custom_url):
     sql = 'SELECT product_code, product_name, price, sammary, description, photos, release_date, keyword, sold_out, order_url FROM my_products WHERE site_id=%s AND custom_url=%s;'
 
     conn = db_conn()
-    with conn.cursor as cur:
+    with conn.cursor() as cur:
         cur.execute(sql, (site_id, custom_url,))
         result = cur.fetchone()
 
