@@ -73,7 +73,7 @@ def product_detail(custom_url):
     product_detail = get_product_detail(site_id, custom_url)
     navigation = get_navigation(site_id)
 
-    html = render_template('blog_detail.html', site_detail=site_detail, product_detail=product_detail, navigation=navigation)
+    html = render_template('product_detail.html', site_detail=site_detail, product_detail=product_detail, navigation=navigation)
     return html
 
 # global
