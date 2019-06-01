@@ -91,7 +91,7 @@
         <!-- content_body is empty -->
         {% else %}
             <section class="description">
-                {{ product_detail.description }}
+                {{ product_detail.description|safe }}
             </section>
         {% endif %}
 
