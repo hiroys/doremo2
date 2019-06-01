@@ -167,7 +167,7 @@ def get_blog_detail(site_id, custom_url):
     return blog
 
 def get_product_detail(site_id, custom_url):
-    sql = 'SELECT product_code, product_name, price, sammary, description, photos, release_date, keyword, sold_out, order_url FROM my_products WHERE site_id=%s AND custom_url=%s;'
+    sql = 'SELECT product_code, product_name, price, sammary, description, photos, release_date, keyword, sold_out, order_url FROM my_products WHERE site_id=%s AND product_code=%s;'
 
     conn = db_conn()
     with conn.cursor() as cur:
